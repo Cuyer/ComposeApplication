@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import com.example.core_ui.Dimensions
 import com.example.core_ui.LocalSpacing
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColorScheme(
     primary = md_theme_dark_primary,
@@ -82,6 +83,17 @@ fun ComposeApplicationTheme(
         DarkColorPalette
     } else {
         LightColorPalette
+    }
+
+    val systemUiController = rememberSystemUiController()
+    if (darkTheme) {
+        systemUiController.setStatusBarColor(
+            color = colors.surface
+        )
+    } else {
+        systemUiController.setStatusBarColor(
+            color = colors.surface
+        )
     }
     CompositionLocalProvider(LocalSpacing provides Dimensions()) {
         MaterialTheme(

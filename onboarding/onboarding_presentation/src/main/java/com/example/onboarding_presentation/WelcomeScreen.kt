@@ -22,7 +22,8 @@ import com.example.onboarding_presentation.components.ActionButton
 fun WelcomeScreen() {
     val spacing = LocalSpacing.current
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .padding(spacing.spaceMedium),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -30,9 +31,9 @@ fun WelcomeScreen() {
         Text(
             text = stringResource(id = R.string.welcome_text),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.headlineLarge
+            style = MaterialTheme.typography.headlineMedium
         )
-        Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        Spacer(modifier = Modifier.height(spacing.spaceLarge))
         ActionButton(
             text = stringResource(id = R.string.next),
             onClick = { /*TODO*/ },
