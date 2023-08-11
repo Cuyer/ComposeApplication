@@ -24,7 +24,7 @@ fun UnitTextField(
     unit: String,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = TextStyle(
-        color = MaterialTheme.colorScheme.onPrimary,
+        color = MaterialTheme.colorScheme.onSurface,
         fontSize = 70.sp
     )
 ) {
