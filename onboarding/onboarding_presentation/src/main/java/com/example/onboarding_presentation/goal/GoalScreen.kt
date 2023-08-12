@@ -16,6 +16,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.composeapplication.core.R
 import com.example.core.domain.model.GoalType
@@ -50,7 +51,8 @@ fun GoalScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.lose_keep_or_gain_weight),
-                style = MaterialTheme.typography.headlineMedium
+                style = MaterialTheme.typography.headlineMedium,
+                textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Row {
