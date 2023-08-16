@@ -24,7 +24,7 @@ class ValidateNutrients {
             )
         }
 
-        return Result.Sucess(
+        return Result.Success(
             carbsRatio / 100f,
             proteinRatio / 100f,
             fatRatio / 100f
@@ -32,7 +32,7 @@ class ValidateNutrients {
     }
 
     sealed class Result {
-        data class Sucess(
+        data class Success(
             val carbsRatio: Float,
             val proteinRatio: Float,
             val fatRatio: Float

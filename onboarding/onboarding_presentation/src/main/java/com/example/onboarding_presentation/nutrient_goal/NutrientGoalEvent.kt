@@ -7,5 +7,5 @@ sealed class NutrientGoalEvent {
 
     data class OnFatRatioEnter(val ratio: String) : NutrientGoalEvent()
 
-    data object OnNextClick :NutrientGoalEvent()
+    data object OnNextClick : NutrientGoalEvent()
 }
