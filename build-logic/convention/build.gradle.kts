@@ -34,6 +34,10 @@ gradlePlugin {
             id = "composeapplication.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
+        register("androidRetrofit") {
+            id = "composeapplication.android.retrofit"
+            implementationClass = "AndroidRetrofitConventionPlugin"
+        }
         register("androidLibrary") {
             id = "composeapplication.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
