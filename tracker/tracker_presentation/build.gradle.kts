@@ -8,4 +8,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":tracker:tracker_domain"))
+    implementation(project(":core"))
+    implementation(project(":core-ui"))
 }

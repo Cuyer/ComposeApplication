@@ -10,4 +10,5 @@ android {
 dependencies {
     implementation(project(":onboarding:onboarding_domain"))
     implementation(project(":core-ui"))
+    implementation(project(":core"))
 }
