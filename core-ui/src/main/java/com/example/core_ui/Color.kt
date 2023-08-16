@@ -1,4 +1,4 @@
-package com.example.composeapplication.ui.theme
+package com.example.core_ui
 
 import androidx.compose.ui.graphics.Color
 
@@ -63,6 +63,9 @@ val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFF3DE436)
 val md_theme_dark_outlineVariant = Color(0xFF43483F)
 val md_theme_dark_scrim = Color(0xFF000000)
-
+val Orange =  Color(0xFFFFAA00)
+val CarbColor = Color(0xFFEEFF00)
+val ProteinColor = Orange
+val FatColor = Color(0xFFF44336)
 
 val seed = Color(0xFF00C713)
