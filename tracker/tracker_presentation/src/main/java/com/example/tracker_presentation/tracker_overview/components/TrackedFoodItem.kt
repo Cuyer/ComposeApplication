@@ -69,7 +69,7 @@ fun TrackedFoodItem(
                     }).build()
             ),
             contentDescription = trackedFood.name,
-            contentScale = ContentScale.Fit,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxHeight()
                 .aspectRatio(1f)
@@ -179,7 +179,7 @@ fun TrackedFoodItemPreview(
                     }).build()
             ),
             contentDescription = trackedFood.name,
-            contentScale = ContentScale.Fit,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxHeight()
                 .aspectRatio(1f)

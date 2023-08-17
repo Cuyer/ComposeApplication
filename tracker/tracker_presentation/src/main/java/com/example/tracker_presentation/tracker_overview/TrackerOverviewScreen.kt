@@ -17,7 +17,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.composeapplication.core.R
 import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
-import com.example.tracker_domain.model.defaultTrackedFood
 import com.example.tracker_presentation.tracker_overview.components.AddButton
 import com.example.tracker_presentation.tracker_overview.components.DaySelector
 import com.example.tracker_presentation.tracker_overview.components.ExpandableMeal
@@ -75,7 +74,7 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = spacing.spaceSmall)
                     ) {
-                        defaultTrackedFood.forEach { food ->
+                        state.trackedFoods.forEach { food ->
                             TrackedFoodItem(
                                 trackedFood = food,
                                 onDeleteClick = {
