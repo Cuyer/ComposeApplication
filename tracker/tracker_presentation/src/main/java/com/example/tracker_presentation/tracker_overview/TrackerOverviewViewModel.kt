@@ -21,7 +21,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TrackerOverviewViewModel @Inject constructor(
-    preferences: Preferences,
+    private val preferences: Preferences,
     private val trackerUseCases: TrackerUseCases
 ) : ViewModel() {
 
@@ -34,6 +34,7 @@ class TrackerOverviewViewModel @Inject constructor(
     private var getFoodsForDateJob: Job? = null
 
     init {
+        refreshFoods()
         preferences.saveShouldShowOnboarding(false)
     }
 
@@ -82,6 +83,13 @@ class TrackerOverviewViewModel @Inject constructor(
                         } else it
                     }
                 )
+            }
+
+            is TrackerOverviewEvent.OnLogoutClick -> {
+                preferences.saveShouldShowOnboarding(true)
+                viewModelScope.launch {
+                    _uiEvent.send(UiEvent.RefreshActivity)
+                }
             }
         }
     }

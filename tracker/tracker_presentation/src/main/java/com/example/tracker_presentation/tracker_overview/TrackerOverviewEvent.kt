@@ -12,4 +12,6 @@ sealed class TrackerOverviewEvent {
 
     data class OnAddFoodClick(val meal: Meal) : TrackerOverviewEvent()
 
+    data object OnLogoutClick : TrackerOverviewEvent()
+
 }

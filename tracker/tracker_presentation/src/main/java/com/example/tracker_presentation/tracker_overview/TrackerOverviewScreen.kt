@@ -1,6 +1,9 @@
 package com.example.tracker_presentation.tracker_overview
 
+import android.app.Activity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,6 +11,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -34,8 +42,12 @@ fun TrackerOverviewScreen(
 
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
-            when(event) {
+            when (event) {
                 is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.RefreshActivity -> {
+                    (context as? Activity)?.finish()
+                }
+
                 else -> Unit
             }
         }
@@ -45,9 +57,25 @@ fun TrackerOverviewScreen(
             .fillMaxSize()
             .padding(
                 bottom = spacing.spaceMedium
-            )
+            ),
+        userScrollEnabled = true
     ) {
         item {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        color = MaterialTheme.colorScheme.primary
+                    )
+            ) {
+                IconButton(onClick = { viewModel.onEvent(TrackerOverviewEvent.OnLogoutClick) }) {
+                    Icon(
+                        imageVector = Icons.Default.ExitToApp,
+                        tint = MaterialTheme.colorScheme.onPrimary,
+                        contentDescription = "Exit"
+                    )
+                }
+            }
             NutrientsHeader(state = state)
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             DaySelector(
@@ -74,7 +102,10 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = spacing.spaceSmall)
                     ) {
-                        state.trackedFoods.forEach { food ->
+                        val foods = state.trackedFoods.filter {
+                            it.mealType == meal.mealType
+                        }
+                        foods.forEach { food ->
                             TrackedFoodItem(
                                 trackedFood = food,
                                 onDeleteClick = {

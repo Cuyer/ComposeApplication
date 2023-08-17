@@ -63,7 +63,7 @@ fun SearchTextField(
                     elevation = 2.dp,
                     shape = RoundedCornerShape(5.dp)
                 )
-                .background(MaterialTheme.colorScheme.surface)
+                .background(Color.White)
                 .fillMaxWidth()
                 .padding(spacing.spaceMedium)
                 .padding(end = spacing.spaceMedium)
@@ -77,6 +77,7 @@ fun SearchTextField(
                color = Color.LightGray,
                modifier = Modifier
                    .align(Alignment.CenterStart)
+                   .padding(spacing.spaceSmall)
            )
         }
         IconButton(
@@ -85,7 +86,8 @@ fun SearchTextField(
         ) {
             Icon(
                 imageVector = Icons.Default.Search,
-                contentDescription = stringResource(id = R.string.search)
+                contentDescription = stringResource(id = R.string.search),
+                tint = Color.Black
             )
         }
     }
