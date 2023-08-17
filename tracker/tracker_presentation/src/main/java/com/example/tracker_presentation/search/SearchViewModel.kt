@@ -29,10 +29,11 @@ class SearchViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     fun onEvent(event: SearchEvent) {
-        when(event) {
+        when (event) {
             is SearchEvent.OnQueryChange -> {
                 state = state.copy(query = event.query)
             }
+
             is SearchEvent.OnAmountForFoodChange -> {
                 state = state.copy(
                     trackableFood = state.trackableFood.map {
@@ -42,9 +43,11 @@ class SearchViewModel @Inject constructor(
                     }
                 )
             }
+
             is SearchEvent.OnSearch -> {
                 executeSearch()
             }
+
             is SearchEvent.OnToggleTrackableFood -> {
                 state = state.copy(
                     trackableFood = state.trackableFood.map {
@@ -54,11 +57,13 @@ class SearchViewModel @Inject constructor(
                     }
                 )
             }
+
             is SearchEvent.OnSearchFocusChange -> {
                 state = state.copy(
                     isHintVisible = !event.isFocused && state.query.isBlank()
                 )
             }
+
             is SearchEvent.OnTrackFoodClick -> {
                 trackFood(event)
             }
